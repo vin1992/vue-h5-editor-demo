@@ -2,7 +2,7 @@ module.exports = [
   {
     name: "容器组件",
     description: "article",
-    children: []
+    children: [{ name: "容器", component: "c-container", container: true }]
   },
   {
     name: "功能组件",

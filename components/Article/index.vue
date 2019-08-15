@@ -17,12 +17,8 @@ export default {
       default:'自如寓是一家吧啦啦吧啦是，自如寓是一家吧啦啦吧啦是自如寓是一家吧啦啦吧啦是自如寓是一家吧啦啦吧啦是'
     }
   },
-  data() {
-    return {
-
-    }
-  },
-  mothods:{
+  
+  methods:{
     getConfig() {
       return {
         title:this.title,

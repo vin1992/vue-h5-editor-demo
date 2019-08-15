@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <a :href="href">
+    <a >
       <img :src="src" alt="">
     </a>
   </div>

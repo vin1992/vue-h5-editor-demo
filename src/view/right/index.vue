@@ -7,7 +7,6 @@
     </el-row>
   </div>
 </template>
-
 <script>
   export default {
     props:{
@@ -21,11 +20,16 @@
     watch:{
       editProps:{
         handler(newProps) {
-          this.pushMsg({
-            type:'changeProps',
-            data:newProps
-          })
-        }
+          
+          if (newProps) {
+            this.pushMsg({
+              type:'changeProps',
+              data:newProps
+            })
+          }
+        },
+        immediate:true,
+        deep:true
       }
     },
     methods: {
@@ -33,6 +37,10 @@
         console.log('submit!');
       },
       delCpnt() {
+        this.pushMsg({
+          type:'delCpnt',
+          data:null
+        })
         console.log('删除哪个组件');
       }
     }

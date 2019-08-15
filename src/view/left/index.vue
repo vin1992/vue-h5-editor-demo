@@ -37,8 +37,12 @@ export default {
         type:'addCpnt',
         data:{
           component:o.component,
-          children:[]
         }
+      }
+
+      if (o.container) {
+        tmp.data.children = []
+        tmp.data.container = true
       }
       console.log(o,'aaa');
       this.pushMsg(tmp);

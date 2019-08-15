@@ -72,6 +72,9 @@ export default {
           this.editProps = data.data;
           console.log('editPris',data.data);
           break;
+        case 'delCpnt':
+          this.editProps = null;
+          break;
         default:
           return;
       }
