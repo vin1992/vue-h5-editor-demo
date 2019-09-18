@@ -31,7 +31,7 @@ export default {
         group: 'description',
         disabled: !this.editable,
         ghostClass: 'ghost'
-      }
+      } 
     }
   },
   data() {

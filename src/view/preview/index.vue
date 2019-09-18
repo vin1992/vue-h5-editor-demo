@@ -1,6 +1,5 @@
 <template>
   <div class="view-wrap">
-    <h1>preview</h1>
     <dragCpnt :config="config" :editable="edit" :select="handleSelect" :initKey="handleInitKey"></dragCpnt>
   </div>
 </template>
@@ -34,6 +33,8 @@ export default {
   },
 
   mounted() {
+    this.config = this.$route.params.id && JSON.parse(this.$route.params.id) || [];
+    console.log(this.$route.params.id);
     window.addEventListener('message',this.recieveMsg);
   },
 
@@ -66,6 +67,9 @@ export default {
           break;
         case 'switchTheme':
           this.dark = data.data;
+          break;
+        case "buildPage":
+          this.handleBuild();
           break;
         default:
           return;
@@ -132,6 +136,15 @@ export default {
         return true
       })
     },
+
+    handleBuild() {
+      console.log('跳路由',this.$router);
+      localStorage.setItem('config',this.config);
+      this.pushMsg({
+        type:'buildPage',
+        data:this.config
+      })
+    }
   }
 }
 </script>

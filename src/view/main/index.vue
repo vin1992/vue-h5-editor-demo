@@ -75,6 +75,8 @@ export default {
         case 'delCpnt':
           this.editProps = null;
           break;
+        case 'buildPage':
+          this.handleBuild(data.data);
         default:
           return;
       }
@@ -83,6 +85,11 @@ export default {
       console.log(screen);
       if (!screen) return;
       this.screen = screen;
+    },
+
+    handleBuild(data) {
+      console.log(data);
+      this.$router.push({ name:'preview', params:{id: JSON.stringify(data)}});
     }
   }
 }

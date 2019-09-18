@@ -16,7 +16,10 @@ const router = new VueRouter({
     {
       path: "/preview",
       name: "preview",
-      component: () => import("../view/preview")
+      component: () => import("../view/preview"),
+      props: route => {
+        config: route.params.id;
+      }
     }
   ]
 });
