@@ -1,10 +1,11 @@
 <template>
   <el-main class="wrap">
     <el-row class="btn-wrap">
-      <el-button  round class="btn" @click="getConfig"> 配置</el-button>
+      <!-- <el-button  round class="btn" @click="getConfig"> 配置</el-button> -->
       <el-button type="info" round class="btn" @click="switchEdit">{{edit ? '预览': '编辑'}}</el-button>
       <el-button type="warning" round class="btn" @click="switchTheme">{{dark ? '高雅白' : '深空灰' }}</el-button>
-      <el-button type="default" round class="btn" @click="build">构建</el-button>
+      <el-button type="default" round class="btn" @click="getPreview">构建</el-button>
+      <el-button type="primary" round class="btn" @click="refresh">刷新</el-button>
     </el-row>
     <div class="wrap">
       <iframe :src="url"  ref="screen" :class="{'dark':dark}"></iframe>
@@ -41,6 +42,19 @@ export default {
         data:null
       })
     },
+    getPreview() {
+      this.pushMsg({
+        type:'getPreview',
+        data:null
+      })
+    },
+    refresh() {
+      this.pushMsg({
+        type:'refreshConfig',
+        data:null
+      })
+    },
+
     switchEdit() {
       this.edit = !this.edit;
       this.pushMsg({

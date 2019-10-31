@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import config from '../../../components/components';
+import config from '@fe/builder-components/components';
 export default {
   props:{
     pushMsg:Function

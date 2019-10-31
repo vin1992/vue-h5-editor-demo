@@ -2,7 +2,7 @@ import Vue from "vue";
 import ElementUI from "element-ui";
 import App from "./App.vue";
 import router from "./routes";
-import registerCom from "../components";
+import registerCom from "@fe/builder-components";
 import "element-ui/lib/theme-chalk/index.css";
 // debugger;
 registerCom(Vue);
@@ -13,4 +13,4 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   render: h => h(App)
-}).$mount("#app");
+}).$mount("#root");

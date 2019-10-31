@@ -9,17 +9,22 @@ const router = new VueRouter({
   mode: "history",
   routes: [
     {
-      path: "/",
+      path: "/main/:pid",
       name: "main",
-      component: () => import("../view/main")
+      component: () => import("../view/main"),
+      props: route => {
+        config: route.params.id;
+      }
     },
     {
       path: "/preview",
       name: "preview",
-      component: () => import("../view/preview"),
-      props: route => {
-        config: route.params.id;
-      }
+      component: () => import("../view/preview")
+    },
+    {
+      path: "/",
+      name: "list",
+      component: () => import("../view/list")
     }
   ]
 });
